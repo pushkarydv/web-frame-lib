@@ -1,21 +1,21 @@
 {
-  "name": "web-frame-sdk",
+  "name": "web-frame-lib",
   "version": "1.0.0",
-  "description": "Web Frame SDK allows you to easily integrate your bots, dynamic pages and other with button trigger based architecture into you apps.",
+  "description": "Web Frame lib allows you to easily integrate your bots, dynamic pages and other with button trigger based architecture into you apps.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pushkarydv/web-frame-sdk.git"
+    "url": "git+https://github.com/pushkarydv/web-frame-lib.git"
   },
   "keywords": [
     "web",
     "bots",
     "chatbot",
     "integrate",
-    "sdk",
+    "lib",
     "web",
     "integration",
     "iframe",
@@ -27,7 +27,7 @@
   "author": "Pushkar Yadav",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pushkarydv/web-frame-sdk/issues"
+    "url": "https://github.com/pushkarydv/web-frame-lib/issues"
   },
-  "homepage": "https://github.com/pushkarydv/web-frame-sdk#readme"
+  "homepage": "https://github.com/pushkarydv/web-frame-lib#readme"
 }

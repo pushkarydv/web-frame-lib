@@ -1,10 +1,10 @@
 /* --------------------------------------------------------
-                    web-frame-sdk
+                    web-frame-lib
                 Bulit by: Pushkar Yadav
             Github:http://github.com/pushkarydv
 --------------------------------------------------------  */
-const wfs_css = `
-#wfs-cta-button {
+const wfl_css = `
+#wfl-cta-button {
     box-sizing: border-box;
     position: fixed;
     right: 1rem;
@@ -30,13 +30,13 @@ const wfs_css = `
     z-index: 99997;
 }
 
-#wfs-cta-button:active {
+#wfl-cta-button:active {
     border: none;
     outline: none;
     transform: scale(95%);
 }
 
-#wfs-cross{
+#wfl-cross{
     position: absolute;
     z-index: 99999;
     right: 1rem;
@@ -57,7 +57,7 @@ const wfs_css = `
     display: none;
 }
 
-#wfs-frame {
+#wfl-frame {
     width: 300px;
     height: 500px;
     max-height: 80vh;
@@ -73,14 +73,14 @@ const wfs_css = `
 }
 
 @media screen and (max-width: 1200px) {
-    #wfs-frame {
+    #wfl-frame {
         width: 250px;
         height: 400px;
     }
 }
 
 @media screen and (max-width: 450px) {
-    #wfs-frame {
+    #wfl-frame {
         width: 100%;
         height: 100vh;
         max-height: 100vh;
@@ -92,16 +92,16 @@ const wfs_css = `
 }
 `;
 
-let wfs_config = {
+let wfl_config = {
   activatorText: `Chat With US`,
   closeText: `Close`,
   color: `#000`,
   backgroundColor: `#fff`,
-  wfs_css: wfs_css,
+  wfl_css: wfl_css,
   css: ``,
 };
 
-let IS_WFS_WINDOW_OPEN = false;
+let IS_wfl_WINDOW_OPEN = false;
 
 function addCustomCSS(css) {
   let style = document.createElement('style');
@@ -109,23 +109,23 @@ function addCustomCSS(css) {
   document.head.appendChild(style);
 }
 
-function triggerWfsFrame() {
-  let wfs_frame = document.getElementById('wfs-frame');
-  if (wfs_frame) {
-    IS_WFS_WINDOW_OPEN = !IS_WFS_WINDOW_OPEN;
-    if (IS_WFS_WINDOW_OPEN) {
-      wfs_frame.style.display = 'block';
-      document.getElementById('wfs-cta-button').innerHTML =
-        wfs_config.closeText;
+function triggerwflFrame() {
+  let wfl_frame = document.getElementById('wfl-frame');
+  if (wfl_frame) {
+    IS_wfl_WINDOW_OPEN = !IS_wfl_WINDOW_OPEN;
+    if (IS_wfl_WINDOW_OPEN) {
+      wfl_frame.style.display = 'block';
+      document.getElementById('wfl-cta-button').innerHTML =
+        wfl_config.closeText;
 
       if (window.innerWidth < 450) {
-        document.getElementById('wfs-cross').style.display = 'flex';
+        document.getElementById('wfl-cross').style.display = 'flex';
       }
     } else {
-      wfs_frame.style.display = 'none';
-      document.getElementById('wfs-cta-button').innerHTML =
-        wfs_config.activatorText;
-      document.getElementById('wfs-cross').style.display = 'none';
+      wfl_frame.style.display = 'none';
+      document.getElementById('wfl-cta-button').innerHTML =
+        wfl_config.activatorText;
+      document.getElementById('wfl-cross').style.display = 'none';
     }
   }
 }
@@ -133,54 +133,54 @@ function triggerWfsFrame() {
 function initWebFrame({
   url,
   config,
-  executeAfterWFS = (a, b) => {
+  executeAfterwfl = (a, b) => {
     console.log(a, b);
   },
 }) {
   if (!url) throw new Error('Please provide a url');
   if (!config) config = {};
 
-  wfs_config = {
-    ...wfs_config,
+  wfl_config = {
+    ...wfl_config,
     ...config,
   };
 
   // Check if button is already mounted (script is already running)
-  let wfs_button = document.getElementById('wfs-cta-button');
-  if (wfs_button) return;
+  let wfl_button = document.getElementById('wfl-cta-button');
+  if (wfl_button) return;
 
   // creating frame
-  let wfs_frame = document.createElement('iframe');
-  wfs_frame.setAttribute('id', 'wfs-frame');
-  wfs_frame.setAttribute('src', url);
-  wfs_frame.setAttribute('allow', 'microphone');
-  wfs_frame.setAttribute('allowFullScreen', true);
-  wfs_frame.setAttribute('frameborder', 0);
-  wfs_frame.setAttribute('scrolling', 'yes');
-  wfs_frame.setAttribute('style', 'display:none;');
-  document.body.appendChild(wfs_frame);
+  let wfl_frame = document.createElement('iframe');
+  wfl_frame.setAttribute('id', 'wfl-frame');
+  wfl_frame.setAttribute('src', url);
+  wfl_frame.setAttribute('allow', 'microphone');
+  wfl_frame.setAttribute('allowFullScreen', true);
+  wfl_frame.setAttribute('frameborder', 0);
+  wfl_frame.setAttribute('scrolling', 'yes');
+  wfl_frame.setAttribute('style', 'display:none;');
+  document.body.appendChild(wfl_frame);
 
   // creating button
-  let wfs_activator = document.createElement('button');
-  wfs_activator.setAttribute('id', 'wfs-cta-button');
-  wfs_activator.innerHTML = wfs_config.activatorText;
-  wfs_activator.addEventListener('click', triggerWfsFrame);
-  document.body.appendChild(wfs_activator);
+  let wfl_activator = document.createElement('button');
+  wfl_activator.setAttribute('id', 'wfl-cta-button');
+  wfl_activator.innerHTML = wfl_config.activatorText;
+  wfl_activator.addEventListener('click', triggerwflFrame);
+  document.body.appendChild(wfl_activator);
 
   // mobile top close
-  let wfs_cross = document.createElement('button');
-  wfs_cross.setAttribute('id', 'wfs-cross');
-  wfs_cross.innerHTML =
+  let wfl_cross = document.createElement('button');
+  wfl_cross.setAttribute('id', 'wfl-cross');
+  wfl_cross.innerHTML =
     '<svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460.775 460.775" ><path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55 c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55 c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505 c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55 l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719 c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"/></svg>';
-  wfs_cross.addEventListener('click', triggerWfsFrame);
-  document.body.appendChild(wfs_cross);
+  wfl_cross.addEventListener('click', triggerwflFrame);
+  document.body.appendChild(wfl_cross);
 
   // adding styling
-  addCustomCSS(wfs_config.wfs_css);
-  addCustomCSS(wfs_config.css);
+  addCustomCSS(wfl_config.wfl_css);
+  addCustomCSS(wfl_config.css);
 
-  // this function will be called within scope of wfs
-  executeAfterWFS(wfs_config, IS_WFS_WINDOW_OPEN);
+  // this function will be called within scope of wfl
+  executeAfterwfl(wfl_config, IS_wfl_WINDOW_OPEN);
 }
 
 export { initWebFrame };
