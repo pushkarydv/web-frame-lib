@@ -133,7 +133,7 @@ function triggerwflFrame() {
 function initWebFrame({
   url,
   config,
-  executeAfterwfl = (a, b) => {
+  executeAfterWfl = (a, b) => {
     console.log(a, b);
   },
 }) {
