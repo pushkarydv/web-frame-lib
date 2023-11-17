@@ -101,7 +101,7 @@ let wfl_config = {
   css: ``,
 };
 
-let IS_wfl_WINDOW_OPEN = false;
+let IS_WFL_WINDOW_OPEN = false;
 
 function addCustomCSS(css) {
   let style = document.createElement('style');
@@ -112,8 +112,8 @@ function addCustomCSS(css) {
 function triggerwflFrame() {
   let wfl_frame = document.getElementById('wfl-frame');
   if (wfl_frame) {
-    IS_wfl_WINDOW_OPEN = !IS_wfl_WINDOW_OPEN;
-    if (IS_wfl_WINDOW_OPEN) {
+    IS_WFL_WINDOW_OPEN = !IS_WFL_WINDOW_OPEN;
+    if (IS_WFL_WINDOW_OPEN) {
       wfl_frame.style.display = 'block';
       document.getElementById('wfl-cta-button').innerHTML =
         wfl_config.closeText;
@@ -180,7 +180,7 @@ function initWebFrame({
   addCustomCSS(wfl_config.css);
 
   // this function will be called within scope of wfl
-  executeAfterwfl(wfl_config, IS_wfl_WINDOW_OPEN);
+  executeAfterWfl(wfl_config, IS_WFL_WINDOW_OPEN);
 }
 
-export { initWebFrame };
+module.exports =  { initWebFrame };

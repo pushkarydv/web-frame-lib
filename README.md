@@ -59,9 +59,9 @@
             wfl_css: wfl_css,  //default
             css: ``,   // add custom css triggering classes inside
         },
-        executeAfterwfl: (config, button) => {
+        executeAfterWfl: (config, button) => {
             //  this will execute within scope of this script so that you can perform additional actions
-            console.log('executeAfterwfl', config, button)
+            console.log('executeAfterWfl', config, button)
         },    
     })
     ```
