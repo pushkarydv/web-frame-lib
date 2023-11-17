@@ -1,6 +1,6 @@
 {
   "name": "web-frame-lib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Web Frame lib allows you to easily integrate your bots, dynamic pages and other with button trigger based architecture into you apps.",
   "main": "index.js",
   "scripts": {
