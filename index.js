@@ -134,7 +134,7 @@ function initWebFrame({
   url,
   config,
   executeAfterWfl = (a, b) => {
-    console.log(a, b);
+    // console.log(a, b);
   },
 }) {
   if (!url) throw new Error('Please provide a url');
