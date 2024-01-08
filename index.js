@@ -51,7 +51,7 @@ const wfl_css = `
     transition: 0.3s ease all;
     background: #fff;
     color: #000;
-    border: none;
+    border: 1px solid #000;
     outline: none;
     padding: 0.5rem;
     display: none;
@@ -64,7 +64,7 @@ const wfl_css = `
     min-height: 200px;
     overflow-x: hidden;
     border-radius: 0.6rem;
-    border: none;
+    border: 2px solid #000
     background: #fff;
     position: fixed;
     right: 1rem;
@@ -82,14 +82,15 @@ const wfl_css = `
 @media screen and (max-width: 450px) {
     #wfl-frame {
         width: 100%;
-        height: 100vh;
-        max-height: 100vh;
-        min-height: 100vh;
+        height: 100%;
+        max-height: 100%;
+        min-height: 100%;
         border-radius: 0;
         top: 0;
         left: 0;
     }
 }
+@media (max-width: 768px) { #wfl-frame{border:none;} }
 `;
 
 let wfl_config = {

@@ -73,7 +73,7 @@
 | --- | --- |
 | wfl-cta-button | Primary Triggering button |
 | wfl-cross | Cross button on mobile ui (ful screen) |
-| wfl-iframe | iframe container |
+| wfl-frame | iframe container |
 
 - to apply additional customization you can pass a string of all css inside `config` object
 
