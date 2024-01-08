@@ -90,7 +90,6 @@ const wfl_css = `
         left: 0;
     }
 }
-@media (max-width: 768px) { #wfl-frame{border:none;} }
 `;
 
 let wfl_config = {
