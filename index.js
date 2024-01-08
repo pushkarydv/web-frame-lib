@@ -37,7 +37,7 @@ const wfl_css = `
 }
 
 #wfl-cross{
-    position: absolute;
+    position: fixed;
     z-index: 99999;
     right: 1rem;
     top: 1rem;
